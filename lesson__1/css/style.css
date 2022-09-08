@@ -52,7 +52,7 @@ html, body {
 }
 
 .product-item:hover {
-    transform: scale(1.15);
+    transform: scale(1.14);
     transition: transform 0.2s;
 }
 
