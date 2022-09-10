@@ -37,6 +37,7 @@ class GoodsList {
         document.querySelector('.products').innerHTML = listHTML;
     }
     getTotalPrice() {
+        let totalPrice = document.querySelector('.products__totalPrice'); //пробую вывести сумму в блок под товарами
         let sum = 0;
        // this.goods.forEach(good => {
        //     sum += good.price;
@@ -45,6 +46,7 @@ class GoodsList {
         for(let good of this.goods) {
             sum += good.price;
         }
+        totalPrice.innerText = sum;//пробую вывести сумму в блок под товарами
         console.log(sum); //в этом случае так же выходит NaN. Подскажите, пожалуйста, в чем причина?
     }
 }
