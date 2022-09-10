@@ -1,3 +1,4 @@
+// Task in progress :)
 class Hamburger {
     constructor(size, filling, additives) { 
         this.size = size;

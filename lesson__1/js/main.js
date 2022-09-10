@@ -32,16 +32,20 @@ class GoodsList {
         this.goods.forEach(good => {
             const goodItem = new GoodsItem(good.title, good.price, good.image);
             listHTML += goodItem.renderProduct();
-        });
+        }); //после того как переписала рендер для класса, перестали отображаться картинки.
+        //проверяю через отладчик, путь к картинке почему-то underfind. Подскажите, пожалуйста, почему так?
         document.querySelector('.products').innerHTML = listHTML;
     }
     getTotalPrice() {
-        let totalPrice = document.querySelector('.products__totalPrice');
         let sum = 0;
-        this.goods.forEach (good => {
-            sum += good.price
-        });
-        totalPrice.innerText = sum;
+       // this.goods.forEach(good => {
+       //     sum += good.price;
+       // })
+       // console.log(sum);  //не могу понять почему выходит NaN.
+        for(let good of this.goods) {
+            sum += good.price;
+        }
+        console.log(sum); //в этом случае так же выходит NaN. Подскажите, пожалуйста, в чем причина?
     }
 }
 
@@ -50,6 +54,9 @@ class Cart {
         this.item = cartItem;
         this.count = initialValue;
     }
+    render() {}
+    addGood() {}
+    removeGood() {}
     reset() {}
     sendOrder() {}
     getInfo() {}
@@ -62,6 +69,7 @@ class cartItem {
         this.image - image;
         this.price = price;
     }
+    render() {}
     deleteItem() {}
     increment() {}
     decrement() {}
@@ -70,7 +78,7 @@ class cartItem {
 const list = new GoodsList();
 list.fetchGoods();
 list.render();
-list.getTotalPrice();
+list.getTotalPrice(); //пока NaN. Бодаюсь с кодом дальше.
 
 /**
 const products = [
