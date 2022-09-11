@@ -2,7 +2,8 @@ class GoodsItem {
     constructor(title = "Монитор", price = 1000, image = 'https://fiftyflowers.ru/image/catalog/%D0%A1%D1%82%D0%B8%D0%BA%D0%B5%D1%80%D1%8B/%D0%9D%D0%B5%D1%82%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8.png') {
         this.title = title;
         this.price = price;
-        this.image - image;
+        this.image = image;
+        this.renderProduct();
     }
     renderProduct() {
         return `<div class="product-item">
@@ -17,11 +18,15 @@ class GoodsItem {
 class GoodsList {
     constructor() {
         this.goods = [];
+        this.fetchGoods();
+        this.render();
+        this.getTotalPrice();
     }
     fetchGoods() {
         this.goods = [
             {price: 2000, image: 'https://proprikol.ru/wp-content/uploads/2019/09/kartinki-monitora-6.jpg'},
-            {title: 'Mouse', image: 'https://static.galamart.ru/images_1000/6CAIRAD-8.jpg?t=1634626788'},
+            //{title: 'Mouse', price: 2000, image: 'https://static.galamart.ru/images_1000/6CAIRAD-8.jpg?t=1634626788'},
+            new GoodsItem('Сонька', 2000, 'https://img.mvideo.ru/Pdb/50049723b.jpg'),
             {title: 'Keyboard', price: 200, image: 'https://img.mvideo.ru/Pdb/50049723b.jpg'},
             {title: 'Gamepad', price: 50, image: 'https://mgames.ua/upload/catalog_products_photos/images/s_51gnmd2_otl__sl1200_1605539989.jpg'},
             {title: 'Тестовый товар', price: 150},
@@ -32,17 +37,17 @@ class GoodsList {
         this.goods.forEach(good => {
             const goodItem = new GoodsItem(good.title, good.price, good.image);
             listHTML += goodItem.renderProduct();
-        }); //после того как переписала рендер для класса, перестали отображаться картинки.
-        //проверяю через отладчик, путь к картинке почему-то underfind. Подскажите, пожалуйста, почему так?
+        });
         document.querySelector('.products').innerHTML = listHTML;
     }
     getTotalPrice() {
         let totalPrice = document.querySelector('.products__totalPrice'); //пробую вывести сумму в блок под товарами
         let sum = 0;
-       // this.goods.forEach(good => {
-       //     sum += good.price;
-       // })
-       // console.log(sum);  //не могу понять почему выходит NaN.
+        //this.goods.forEach(good => {
+            //console.log(good.price);
+            //sum += good.price;
+        //})
+        //console.log(sum);  //не могу понять почему выходит NaN.
         for(let good of this.goods) {
             sum += good.price;
         }
@@ -77,11 +82,10 @@ class cartItem {
     decrement() {}
 }
 
-const list = new GoodsList();
-list.fetchGoods();
-list.render();
-list.getTotalPrice(); //пока NaN. Бодаюсь с кодом дальше.
-
+const catalogItem = new GoodsItem();
+const list = new GoodsList("Abcd", catalogItem);
+console.log(list.getTotalPrice());
+console.log(list);
 /**
 const products = [
     {id: 1, price: 2000, image: 'https://proprikol.ru/wp-content/uploads/2019/09/kartinki-monitora-6.jpg'}, //значение title по умолчанию
