@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/burger.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="burger">
+        <div class="burger__size">
+            <h2>Выберите размер бургера:</h2>
+            <label for="big-burger" class="label-size"> Большой бургер
+                <input name="size" 
+                        type="radio" 
+                        id="big-burger" 
+                        value="big-burger" 
+                        data-price = "100" 
+                        data-calories = "40" 
+                        class="size ingredient">
+            </label>
+            <label for="small-burger" class="label-size"> Маленький бургер
+                <input name="size" 
+                        type="radio" 
+                        id="small-burger" 
+                        value="small-burger" 
+                        data-price = "50" 
+                        data-calories = "20" 
+                        class="size ingredient">
+            </label>
+        </div>
+        <div class="burger__filling">
+            <h2>Выберите начинку:</h2>
+            <label for="cheese" class="label-filling"> Сыр
+                <input name="filling" 
+                        type="radio" 
+                        id="cheese" 
+                        value="cheese" 
+                        data-price = "10" 
+                        data-calories = "20" 
+                        class="filling ingredient">
+            </label>
+            <label for="salat" class="label-filling"> Салат
+                <input name="filling" 
+                        type="radio" 
+                        id="salat" 
+                        value="salat" 
+                        data-price = "20" 
+                        data-calories = "5" 
+                        class="filling ingredient">
+            </label>
+            <label for="potato" class="label-filling"> Картошка
+                <input name="filling" 
+                        type="radio" 
+                        id="potato" 
+                        value="potato" 
+                        data-price = "15" 
+                        data-calories = "10" 
+                        class="filling ingredient">
+            </label>
+        </div>
+        <div class="burger__additives">
+            <h2>Добавки:</h2>
+            <label for="spice" class="label-additives"> Специи
+                <input name="filling" 
+                        type="checkbox" 
+                        id="spice" 
+                        value="spice" 
+                        data-price = "15" 
+                        data-calories = "0" 
+                        class="additives ingredient">
+            </label>
+            <label for="mayo" class="label-additives"> Майонез
+                <input name="filling" 
+                        type="checkbox" 
+                        id="mayo" 
+                        value="mayo" 
+                        data-price = "20" 
+                        data-calories = "5" 
+                        class="additives ingredient">
+            </label>
+        </div>
+    </div>
+    <div class="submit">
+        <input type="submit" class="button" value="Собрать бургер">
+    </div>
+    <div class="orderInfo">
+        <div class="orderInfo__price">
+            <h2>Цена:</h2>
+            <span class="price"></span>
+        </div>
+        <div  class="orderInfo__calories">
+            <h2>Всего каллорий:</h2>
+            <span class="calories"></span>
+        </div>
+    </div>
+    <script src="js/burger.js"></script>
+</body>
+</html>
