@@ -1,7 +1,7 @@
 class GoodsItem {
     //constructor(title = "Монитор", price = 1000, image = 'https://fiftyflowers.ru/image/catalog/%D0%A1%D1%82%D0%B8%D0%BA%D0%B5%D1%80%D1%8B/%D0%9D%D0%B5%D1%82%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8.png') 
     constructor({title = "Монитор", price = 7, image = 'https://fiftyflowers.ru/image/catalog/%D0%A1%D1%82%D0%B8%D0%BA%D0%B5%D1%80%D1%8B/%D0%9D%D0%B5%D1%82%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8.png'}
-    = {title: "Монитор", price: 1000, image: 'https://fiftyflowers.ru/image/catalog/%D0%A1%D1%82%D0%B8%D0%BA%D0%B5%D1%80%D1%8B/%D0%9D%D0%B5%D1%82%20%D0%B2%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B8.png'}) {
+    = {title, price, image}) {
         this.title = title;
         this.price = price;
         this.image = image;
@@ -83,7 +83,6 @@ const products = [
     new GoodsItem({title: 'Gamepad', price: 50, image: 'https://mgames.ua/upload/catalog_products_photos/images/s_51gnmd2_otl__sl1200_1605539989.jpg'}),
     new GoodsItem({title: 'Тестовый товар', price: 150})]
 
-const catalogItem = new GoodsItem();
-const list = new GoodsList("Abcd", catalogItem);
+const list = new GoodsList("Abcd", products);
 console.log(list.getTotalPrice());
 console.log(list);
